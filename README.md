@@ -1,1 +1,1 @@
-# MEX2024-Multi-Agent-LLM
+# MEX2024 Multi Agent LLM
