@@ -9,7 +9,11 @@ The files in 'generated_solutions' contain two solutions for each assignment:
 
 
 ## System configuration 
-The required packages are listed in the req.txt file. It is recomended to use a package manager, such as Miniconda, to install all the dependencies. 
+- The required packages are listed in the req.txt file. It is recomended to use a package manager, such as Miniconda, to install all the dependencies. 
+
+- To generate solutions execute the **main.py** file. Change the  parameters found on top of thefile as needed before executing it. 
+
+- To output a generated solution execute the file **read_solutions.py**. Configure it so that it has the correct file_path and task_name.  
 
 
 ### Environment file 
