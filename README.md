@@ -17,7 +17,7 @@ The files in 'generated_solutions' contain two solutions for each assignment:
 
 
 ### Environment file 
-The system requires both GROQ and LangChain API keys. To use the system, create a .env file in the src directory and add your API keys as follows: 
+The system requires both GROQ and LangChain API keys. To use the system, create a .env file and add your API keys as follows: 
 ```python
 LANGCHAIN_API_KEY = "your_langchain_api_key" 
 GROQ_API_KEY = "your_groq_api_key"
