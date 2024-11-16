@@ -3,6 +3,7 @@ import os
 import regex as re
 from datasets import load_dataset
 from prompts import *
+from pathlib import Path
 
 
 def get_generated_code(generated_sol: str):
@@ -60,7 +61,10 @@ def write_sol_to_file(file_name:str, final_solution:str, initial_solution:str, i
     
     #Append content to file
     working_directory =  os.path.dirname(__file__)
-    with open(working_directory +  file_name, 'a') as f:
+    parent_directory = os.path.dirname(working_directory)
+    if not os.path.exists(parent_directory+'/generated_solutions'):
+            os.makedirs(parent_directory+'/generated_solutions')
+    with open(parent_directory+'/generated_solutions/' +  file_name, 'a') as f:
         f.write(json_res + '\n')
 
 
@@ -73,9 +77,10 @@ def get_dataset(dataset_name:str ='kattis', difficulty:str = 'easy'):
     if dataset_name.lower() == 'humaneval' or dataset_name.lower() == 'apps':
         dataset, question_field, id_field = _load_tasks_from_dataset(dataset_name, difficulty)
     elif dataset_name.lower() == 'kattis':
-        working_directory =  os.path.dirname(__file__)
+        working_directory =  os.getcwd()
+        parent_directory = os.path.dirname(working_directory)
         dataset_file_path = '/kattis_dataset/all_problems.json'
-        f = open(working_directory+dataset_file_path)
+        f = open(parent_directory+dataset_file_path)
         data = json.load(f)
         dataset = data[difficulty]
         question_field = "description"

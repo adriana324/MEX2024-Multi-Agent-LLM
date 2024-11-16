@@ -14,6 +14,8 @@ class CodeExecution():
     def __create_temp_file(message:str, suffix:str='.py'):
         """Creates a temporary file, use suffix to specify if it is a .py file or .txt etc"""
         working_directory =  os.path.dirname(__file__)
+        if not os.path.exists(working_directory+'/temp'):
+            os.makedirs(working_directory+'/temp')
         tmp = tempfile.NamedTemporaryFile(suffix=suffix, delete=False,dir=working_directory+'/temp')
         with open(file=tmp.name, mode='w') as f:
             f.write(message)
